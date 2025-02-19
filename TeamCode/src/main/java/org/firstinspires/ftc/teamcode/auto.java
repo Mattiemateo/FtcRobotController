@@ -131,23 +131,27 @@ public class auto extends LinearOpMode {
 
             // Start the arm movement in a separate thread
             Thread armThread = new Thread(() -> {
+                arm(1);
+                sleep(1000);
+                arm(0);
                 while (true){
-
+                    arm(0);
                 }
             });
 
             armThread.start();
 
+            sleep(1500);
             move_y(1000, 1);
             sleep(1000);
             move_right(1000);
             sleep(250);
             move_y(1000, -1);
-            sleep(500);
+            armThread.join();
             sleep(30000 - 1000 + 250 + 500 + 500);
 
             // Make sure the arm finishes before ending the OpMode.
-            armThread.join();
+
 
         }
 

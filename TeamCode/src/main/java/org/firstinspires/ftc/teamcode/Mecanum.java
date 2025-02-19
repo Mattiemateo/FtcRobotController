@@ -122,7 +122,7 @@ public class Mecanum extends LinearOpMode {
 
             if (gamepad2.square) {
                 if (is_open_claw){
-                    claw.setPosition(0.515);
+                    claw.setPosition(0.6);
                     is_open_claw = false;
                 }
             }else if(gamepad2.cross) {
